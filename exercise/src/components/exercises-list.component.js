@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Exercise = (props) => (
@@ -23,7 +23,7 @@ const Exercise = (props) => (
 );
 
 export default class ExerciseList extends Component {
-  constructor() {
+  constructor(props) {
     super(props);
 
     this.deleteExercise = this.deleteExercise.bind(this);
@@ -43,8 +43,8 @@ export default class ExerciseList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/' + id).then((response) => {
-      console.log(response.data);
+    axios.delete('http://localhost:5000/exercises/' + id).then((res) => {
+      console.log(res.data);
     });
 
     this.setState({
